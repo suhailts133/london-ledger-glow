@@ -1,76 +1,99 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const location = useLocation();
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 100;
+      setScrolled(isScrolled);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
-  const isActive = (path: string) => location.pathname === path;
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMenuOpen(false);
+  };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      scrolled 
+        ? 'bg-background/95 backdrop-blur-md border-b border-border shadow-lg' 
+        : 'bg-transparent'
+    }`}>
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="text-foreground font-bold text-2xl">
+          <button 
+            onClick={() => scrollToSection('home')} 
+            className={`font-bold text-2xl transition-colors duration-300 ${
+              scrolled ? 'text-foreground' : 'text-white'
+            }`}
+          >
             London<span className="text-primary">Accounts</span>
-          </Link>
+          </button>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link 
-              to="/" 
-              className={`transition-colors ${
-                isActive('/') 
-                  ? 'text-primary font-medium' 
-                  : 'text-foreground hover:text-primary'
+            <button 
+              onClick={() => scrollToSection('home')}
+              className={`transition-all duration-300 hover:scale-110 ${
+                scrolled 
+                  ? 'text-foreground hover:text-primary' 
+                  : 'text-white hover:text-accent'
               }`}
             >
               Home
-            </Link>
-            <Link 
-              to="/services" 
-              className={`transition-colors ${
-                isActive('/services') 
-                  ? 'text-primary font-medium' 
-                  : 'text-foreground hover:text-primary'
+            </button>
+            <button 
+              onClick={() => scrollToSection('services')}
+              className={`transition-all duration-300 hover:scale-110 ${
+                scrolled 
+                  ? 'text-foreground hover:text-primary' 
+                  : 'text-white hover:text-accent'
               }`}
             >
               Services
-            </Link>
-            <Link 
-              to="/about" 
-              className={`transition-colors ${
-                isActive('/about') 
-                  ? 'text-primary font-medium' 
-                  : 'text-foreground hover:text-primary'
+            </button>
+            <button 
+              onClick={() => scrollToSection('about')}
+              className={`transition-all duration-300 hover:scale-110 ${
+                scrolled 
+                  ? 'text-foreground hover:text-primary' 
+                  : 'text-white hover:text-accent'
               }`}
             >
               About
-            </Link>
-            <Link 
-              to="/contact" 
-              className={`transition-colors ${
-                isActive('/contact') 
-                  ? 'text-primary font-medium' 
-                  : 'text-foreground hover:text-primary'
+            </button>
+            <button 
+              onClick={() => scrollToSection('contact')}
+              className={`transition-all duration-300 hover:scale-110 ${
+                scrolled 
+                  ? 'text-foreground hover:text-primary' 
+                  : 'text-white hover:text-accent'
               }`}
             >
               Contact
-            </Link>
-            <Button>
-              Get Quote
-            </Button>
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-foreground"
+            className={`md:hidden transition-all duration-300 hover:scale-110 ${
+              scrolled ? 'text-foreground' : 'text-white'
+            }`}
             onClick={toggleMenu}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -79,55 +102,32 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t border-border">
+          <div className="md:hidden mt-4 pb-4 border-t border-border animate-fade-in">
             <div className="pt-4 space-y-4">
-              <Link 
-                to="/" 
-                className={`block transition-colors ${
-                  isActive('/') 
-                    ? 'text-primary font-medium' 
-                    : 'text-foreground hover:text-primary'
-                }`}
-                onClick={() => setIsMenuOpen(false)}
+              <button 
+                onClick={() => scrollToSection('home')}
+                className="block text-foreground hover:text-primary transition-all duration-300 hover:translate-x-2 w-full text-left"
               >
                 Home
-              </Link>
-              <Link 
-                to="/services" 
-                className={`block transition-colors ${
-                  isActive('/services') 
-                    ? 'text-primary font-medium' 
-                    : 'text-foreground hover:text-primary'
-                }`}
-                onClick={() => setIsMenuOpen(false)}
+              </button>
+              <button 
+                onClick={() => scrollToSection('services')}
+                className="block text-foreground hover:text-primary transition-all duration-300 hover:translate-x-2 w-full text-left"
               >
                 Services
-              </Link>
-              <Link 
-                to="/about" 
-                className={`block transition-colors ${
-                  isActive('/about') 
-                    ? 'text-primary font-medium' 
-                    : 'text-foreground hover:text-primary'
-                }`}
-                onClick={() => setIsMenuOpen(false)}
+              </button>
+              <button 
+                onClick={() => scrollToSection('about')}
+                className="block text-foreground hover:text-primary transition-all duration-300 hover:translate-x-2 w-full text-left"
               >
                 About
-              </Link>
-              <Link 
-                to="/contact" 
-                className={`block transition-colors ${
-                  isActive('/contact') 
-                    ? 'text-primary font-medium' 
-                    : 'text-foreground hover:text-primary'
-                }`}
-                onClick={() => setIsMenuOpen(false)}
+              </button>
+              <button 
+                onClick={() => scrollToSection('contact')}
+                className="block text-foreground hover:text-primary transition-all duration-300 hover:translate-x-2 w-full text-left"
               >
                 Contact
-              </Link>
-              <Button className="w-full">
-                Get Quote
-              </Button>
+              </button>
             </div>
           </div>
         )}

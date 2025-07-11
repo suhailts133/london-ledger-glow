@@ -1,16 +1,15 @@
-
 import { useState } from "react";
-import { Menu, X, ChevronDown, Calculator, FileText, TrendingUp, Shield, Users, PiggyBank, Award, Clock, MapPin, Mail, Phone } from "lucide-react";
+import { ChevronDown, Calculator, FileText, TrendingUp, Shield, Users, PiggyBank, Award, Clock, MapPin, Mail, Phone } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { useToast } from "@/hooks/use-toast";
+import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
 const Index = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openServices, setOpenServices] = useState<number[]>([]);
   const [formData, setFormData] = useState({
     name: "",
@@ -18,8 +17,6 @@ const Index = () => {
     message: ""
   });
   const { toast } = useToast();
-
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const toggleService = (id: number) => {
     setOpenServices(prev => 
@@ -43,14 +40,6 @@ const Index = () => {
       description: "Thank you for contacting us. We'll get back to you soon.",
     });
     setFormData({ name: "", email: "", message: "" });
-  };
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-    setIsMenuOpen(false);
   };
 
   const services = [
@@ -134,6 +123,8 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
+      <Navigation />
+      
       {/* Hero Section with London Background */}
       <div 
         id="home"
@@ -145,94 +136,16 @@ const Index = () => {
         {/* Overlay */}
         <div className="absolute inset-0 bg-primary/30"></div>
         
-        {/* Navigation */}
-        <nav className="relative z-50 px-6 py-4">
-          <div className="max-w-7xl mx-auto flex items-center justify-between">
-            {/* Logo */}
-            <div className="text-white font-bold text-2xl">
-              London<span className="text-accent">Accounts</span>
-            </div>
-
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
-              <button 
-                onClick={() => scrollToSection('home')}
-                className="text-white hover:text-accent transition-colors"
-              >
-                Home
-              </button>
-              <button 
-                onClick={() => scrollToSection('services')}
-                className="text-white hover:text-accent transition-colors"
-              >
-                Services
-              </button>
-              <button 
-                onClick={() => scrollToSection('about')}
-                className="text-white hover:text-accent transition-colors"
-              >
-                About
-              </button>
-              <button 
-                onClick={() => scrollToSection('contact')}
-                className="text-white hover:text-accent transition-colors"
-              >
-                Contact
-              </button>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              className="md:hidden text-white"
-              onClick={toggleMenu}
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-
-          {/* Mobile Navigation */}
-          {isMenuOpen && (
-            <div className="md:hidden absolute top-full left-0 right-0 bg-black/90 backdrop-blur-sm">
-              <div className="px-6 py-4 space-y-4">
-                <button 
-                  onClick={() => scrollToSection('home')}
-                  className="block text-white hover:text-accent transition-colors w-full text-left"
-                >
-                  Home
-                </button>
-                <button 
-                  onClick={() => scrollToSection('services')}
-                  className="block text-white hover:text-accent transition-colors w-full text-left"
-                >
-                  Services
-                </button>
-                <button 
-                  onClick={() => scrollToSection('about')}
-                  className="block text-white hover:text-accent transition-colors w-full text-left"
-                >
-                  About
-                </button>
-                <button 
-                  onClick={() => scrollToSection('contact')}
-                  className="block text-white hover:text-accent transition-colors w-full text-left"
-                >
-                  Contact
-                </button>
-              </div>
-            </div>
-          )}
-        </nav>
-
         {/* Hero Content */}
-        <div className="relative z-40 flex items-center min-h-[calc(100vh-80px)] px-6">
+        <div className="relative z-40 flex items-center min-h-screen px-6 pt-20">
           <div className="max-w-7xl mx-auto">
-            <div className="max-w-3xl text-left animate-fade-in">
-              <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+            <div className="max-w-3xl text-left">
+              <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight animate-fade-in">
                 Expert Accounting
                 <br />
-                <span className="text-accent">Solutions</span>
+                <span className="text-accent animate-pulse">Solutions</span>
               </h1>
-              <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed">
+              <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed animate-fade-in" style={{ animationDelay: '0.3s' }}>
                 Navigate London's financial landscape with confidence. Professional accounting services tailored for your business success.
               </p>
             </div>
@@ -248,11 +161,11 @@ const Index = () => {
       {/* Services Section */}
       <section id="services" className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-6 animate-fade-in">
               Our <span className="text-primary">Services</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
               Comprehensive accounting solutions designed to support your business at every stage of growth
             </p>
           </div>
@@ -261,16 +174,16 @@ const Index = () => {
             {services.map((service, index) => (
               <Card 
                 key={service.id} 
-                className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 animate-fade-in"
+                className="hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-105 animate-fade-in bg-card/80 backdrop-blur-sm"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardHeader>
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="p-3 bg-primary/10 rounded-lg">
+                    <div className="p-3 bg-primary/10 rounded-lg transition-all duration-300 hover:bg-primary/20 hover:scale-110">
                       <service.icon className="w-6 h-6 text-primary" />
                     </div>
                   </div>
-                  <CardTitle className="text-xl">{service.title}</CardTitle>
+                  <CardTitle className="text-xl hover:text-primary transition-colors duration-300">{service.title}</CardTitle>
                   <CardDescription>{service.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -278,18 +191,18 @@ const Index = () => {
                     <CollapsibleTrigger asChild>
                       <Button 
                         variant="ghost" 
-                        className="w-full justify-between p-0 h-auto"
+                        className="w-full justify-between p-0 h-auto hover:bg-primary/5 transition-all duration-300"
                         onClick={() => toggleService(service.id)}
                       >
                         <span className="text-primary font-medium">Read More</span>
                         <ChevronDown 
-                          className={`w-4 h-4 text-primary transition-transform ${
+                          className={`w-4 h-4 text-primary transition-transform duration-300 ${
                             openServices.includes(service.id) ? 'rotate-180' : ''
                           }`} 
                         />
                       </Button>
                     </CollapsibleTrigger>
-                    <CollapsibleContent className="mt-4">
+                    <CollapsibleContent className="mt-4 animate-fade-in">
                       <p className="text-muted-foreground leading-relaxed">
                         {service.details}
                       </p>
@@ -305,11 +218,11 @@ const Index = () => {
       {/* About Section */}
       <section id="about" className="py-20 bg-secondary/30">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-6 animate-fade-in">
               About <span className="text-primary">Us</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
               Trusted accounting professionals serving London businesses for over a decade
             </p>
           </div>
@@ -320,13 +233,13 @@ const Index = () => {
                 Your Trusted Financial Partners
               </h3>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
-                <p>
+                <p className="hover:text-foreground transition-colors duration-300">
                   Founded in the heart of London, LondonAccounts has been providing exceptional 
                   accounting services to businesses across the capital for over fifteen years. 
                   Our team of qualified accountants and financial advisors are committed to 
                   helping your business navigate the complex world of finance with confidence.
                 </p>
-                <p>
+                <p className="hover:text-foreground transition-colors duration-300">
                   We understand that every business is unique, which is why we take the time 
                   to understand your specific needs and goals. From startups to established 
                   enterprises, we provide tailored solutions that drive growth and ensure 
@@ -338,7 +251,7 @@ const Index = () => {
               <img 
                 src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1926&q=80"
                 alt="Modern office space"
-                className="rounded-lg shadow-lg"
+                className="rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105"
               />
             </div>
           </div>
@@ -347,14 +260,14 @@ const Index = () => {
             {stats.map((stat, index) => (
               <Card 
                 key={stat.label} 
-                className="text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1 animate-fade-in"
+                className="text-center hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-105 animate-fade-in bg-card/80 backdrop-blur-sm"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardContent className="p-8">
-                  <div className="p-4 bg-primary/10 rounded-full w-fit mx-auto mb-4">
+                  <div className="p-4 bg-primary/10 rounded-full w-fit mx-auto mb-4 hover:bg-primary/20 transition-colors duration-300 hover:scale-110">
                     <stat.icon className="w-8 h-8 text-primary" />
                   </div>
-                  <div className="text-3xl font-bold text-foreground mb-2">
+                  <div className="text-3xl font-bold text-foreground mb-2 hover:text-primary transition-colors duration-300">
                     {stat.value}
                   </div>
                   <div className="text-muted-foreground">
@@ -370,18 +283,18 @@ const Index = () => {
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-6 animate-fade-in">
               Contact <span className="text-primary">Us</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
               Ready to take your business finances to the next level? Get in touch with our expert team today.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-16">
+          <div className="grid lg:grid-cols-2 gap-16 mb-16">
             <div className="animate-fade-in">
-              <Card>
+              <Card className="hover:shadow-2xl transition-all duration-500 bg-card/80 backdrop-blur-sm">
                 <CardHeader>
                   <CardTitle className="text-2xl">Send us a Message</CardTitle>
                 </CardHeader>
@@ -396,7 +309,7 @@ const Index = () => {
                         value={formData.name}
                         onChange={handleInputChange}
                         required
-                        className="mt-2"
+                        className="mt-2 transition-all duration-300 hover:border-primary focus:scale-105"
                         placeholder="Your full name"
                       />
                     </div>
@@ -409,7 +322,7 @@ const Index = () => {
                         value={formData.email}
                         onChange={handleInputChange}
                         required
-                        className="mt-2"
+                        className="mt-2 transition-all duration-300 hover:border-primary focus:scale-105"
                         placeholder="your.email@example.com"
                       />
                     </div>
@@ -422,11 +335,11 @@ const Index = () => {
                         onChange={handleInputChange}
                         required
                         rows={6}
-                        className="mt-2 w-full px-3 py-2 border border-input bg-background rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+                        className="mt-2 w-full px-3 py-2 border border-input bg-background rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 transition-all duration-300 hover:border-primary focus:scale-105"
                         placeholder="Tell us about your accounting needs..."
                       />
                     </div>
-                    <Button type="submit" size="lg" className="w-full">
+                    <Button type="submit" size="lg" className="w-full hover:scale-105 transition-all duration-300">
                       Send Message
                     </Button>
                   </form>
@@ -438,16 +351,16 @@ const Index = () => {
               {contactInfo.map((info, index) => (
                 <Card 
                   key={info.title} 
-                  className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                  className="hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 hover:scale-105 bg-card/80 backdrop-blur-sm"
                   style={{ animationDelay: `${0.1 * index}s` }}
                 >
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4">
-                      <div className="p-3 bg-primary/10 rounded-lg">
+                      <div className="p-3 bg-primary/10 rounded-lg hover:bg-primary/20 transition-all duration-300 hover:scale-110">
                         <info.icon className="w-6 h-6 text-primary" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-foreground mb-1">
+                        <h3 className="font-semibold text-foreground mb-1 hover:text-primary transition-colors duration-300">
                           {info.title}
                         </h3>
                         <p className="text-foreground mb-1">
@@ -462,6 +375,27 @@ const Index = () => {
                 </Card>
               ))}
             </div>
+          </div>
+
+          {/* Google Maps Section */}
+          <div className="animate-fade-in">
+            <Card className="hover:shadow-2xl transition-all duration-500 bg-card/80 backdrop-blur-sm">
+              <CardContent className="p-0">
+                <div className="aspect-video bg-muted rounded-lg overflow-hidden">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.2779487314143!2d-0.08919308423022394!3d51.51345897963616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487603464461a401%3A0xa13f1f7f8b094228!2sBank%2C%20London!5e0!3m2!1sen!2suk!4v1634567890123!5m2!1sen!2suk!4v1634567890123!5m2!1sen!2suk"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Office Location - Bank, London"
+                    className="hover:grayscale-0 grayscale transition-all duration-500"
+                  />
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
