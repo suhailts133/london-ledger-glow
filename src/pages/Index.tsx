@@ -130,65 +130,55 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen animate-page-transition">
+    <div className="min-h-screen">
       <Navigation />
       
-      {/* Hero Section with Enhanced Animations */}
+      {/* Hero Section with London Background */}
       <div 
         id="home"
-        className="min-h-screen bg-cover bg-center bg-no-repeat relative overflow-hidden"
+        className="min-h-screen bg-cover bg-center bg-no-repeat relative"
         style={{
           backgroundImage: `url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')`
         }}
       >
-        {/* Animated Background Particles */}
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-20 w-8 h-8 bg-primary/20 rounded-full animate-background-particles"></div>
-          <div className="absolute top-40 right-32 w-6 h-6 bg-accent/30 rounded-full animate-background-particles stagger-2"></div>
-          <div className="absolute bottom-32 left-1/4 w-10 h-10 bg-secondary/25 rounded-full animate-background-particles stagger-3"></div>
-          <div className="absolute bottom-20 right-20 w-12 h-12 bg-primary/15 rounded-full animate-background-particles stagger-4"></div>
-        </div>
-
-        {/* Overlay with floating gradient */}
-        <div className="absolute inset-0 bg-primary/30 animate-floating-gradient opacity-80"></div>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-primary/30"></div>
         
         {/* Hero Content */}
         <div className="relative z-40 flex items-center min-h-screen px-6 pt-20">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-3xl text-left">
-              <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight animate-hero-text-reveal">
+              <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight animate-hero-slide-up">
                 Expert Accounting
                 <br />
                 <span className="text-accent animate-hero-glow">Solutions</span>
               </h1>
-              <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed animate-text-wave-entrance stagger-2">
+              <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed animate-hero-fade-in-delayed">
                 Navigate London's financial landscape with confidence. Professional accounting services tailored for your business success.
               </p>
             </div>
           </div>
         </div>
 
-        {/* Enhanced Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-slow hover-glow">
-          <ChevronDown className="text-white w-8 h-8 hover-spin" />
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-slow">
+          <ChevronDown className="text-white w-8 h-8" />
         </div>
       </div>
 
-      {/* Services Section with Cool Pop-up Cards */}
+      {/* Services Section */}
       <section id="services" className="py-20 bg-background relative overflow-hidden">
-        {/* Enhanced Background Pattern */}
+        {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 animate-floating-gradient"></div>
-          <div className="absolute top-10 left-10 w-32 h-32 bg-primary/10 rounded-full animate-background-particles"></div>
-          <div className="absolute bottom-20 right-20 w-24 h-24 bg-accent/10 rounded-full animate-background-particles stagger-3"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20"></div>
         </div>
         
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-6 animate-hero-text-reveal">
+            <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-6 animate-section-title-slide">
               Our <span className="text-primary animate-text-shimmer">Services</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-text-wave-entrance stagger-1">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-section-subtitle-fade">
               Comprehensive accounting solutions designed to support your business at every stage of growth
             </p>
           </div>
@@ -197,21 +187,22 @@ const Index = () => {
             {services.map((service, index) => (
               <Card 
                 key={service.id} 
-                className={`hover:shadow-2xl transition-all duration-700 hover:-translate-y-4 hover:scale-[1.02] animate-card-pop-entrance hover-lift bg-card/90 backdrop-blur-sm border-l-4 border-l-primary relative group overflow-hidden stagger-${index + 1}`}
+                className="hover:shadow-2xl transition-all duration-700 hover:-translate-y-4 hover:scale-[1.02] animate-service-card-rise bg-card/90 backdrop-blur-sm border-l-4 border-l-primary relative group overflow-hidden"
+                style={{ animationDelay: `${index * 0.15}s` }}
               >
-                {/* Enhanced animated background gradient */}
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-all duration-500 animate-floating-gradient"></div>
+                {/* Animated background gradient */}
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
                 <CardHeader className="relative z-10">
                   <div className="flex items-start gap-6 mb-4">
-                    <div className="p-4 bg-primary/10 rounded-xl transition-all duration-500 group-hover:bg-primary/20 group-hover:scale-110 group-hover:rotate-3 animate-icon-spin-pop hover-glow stagger-1">
-                      <service.icon className="w-8 h-8 text-primary transition-all duration-300 group-hover:scale-110 hover-spin" />
+                    <div className="p-4 bg-primary/10 rounded-xl transition-all duration-500 group-hover:bg-primary/20 group-hover:scale-110 group-hover:rotate-3">
+                      <service.icon className="w-8 h-8 text-primary transition-all duration-300 group-hover:scale-110" />
                     </div>
                     <div className="flex-1">
-                      <CardTitle className="text-2xl md:text-3xl hover:text-primary transition-colors duration-300 mb-2 group-hover:translate-x-2 animate-text-wave-entrance stagger-2">
+                      <CardTitle className="text-2xl md:text-3xl hover:text-primary transition-colors duration-300 mb-2 group-hover:translate-x-2">
                         {service.title}
                       </CardTitle>
-                      <CardDescription className="text-lg text-muted-foreground group-hover:text-foreground transition-colors duration-300 animate-text-wave-entrance stagger-3">
+                      <CardDescription className="text-lg text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                         {service.description}
                       </CardDescription>
                     </div>
@@ -223,21 +214,21 @@ const Index = () => {
                     <CollapsibleTrigger asChild>
                       <Button 
                         variant="ghost" 
-                        className="w-full justify-between p-4 h-auto hover:bg-primary/10 transition-all duration-500 group/btn border border-primary/20 rounded-lg hover:border-primary/40 animate-button-magnetic hover-lift"
+                        className="w-full justify-between p-4 h-auto hover:bg-primary/10 transition-all duration-500 group/btn border border-primary/20 rounded-lg hover:border-primary/40"
                         onClick={() => toggleService(service.id)}
                       >
                         <span className="text-primary font-semibold text-lg group-hover/btn:translate-x-2 transition-transform duration-300">
                           Read More Details
                         </span>
                         <ChevronDown 
-                          className={`w-5 h-5 text-primary transition-all duration-500 group-hover/btn:scale-110 hover-spin ${
+                          className={`w-5 h-5 text-primary transition-all duration-500 group-hover/btn:scale-110 ${
                             openServices.includes(service.id) ? 'rotate-180' : ''
                           }`} 
                         />
                       </Button>
                     </CollapsibleTrigger>
                     <CollapsibleContent className="mt-6 animate-expand-content">
-                      <div className="bg-secondary/20 p-6 rounded-lg border-l-2 border-primary/30 hover-glow">
+                      <div className="bg-secondary/20 p-6 rounded-lg border-l-2 border-primary/30">
                         <p className="text-muted-foreground leading-relaxed text-base animate-text-reveal">
                           {service.details}
                         </p>
@@ -251,36 +242,35 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Enhanced About Section */}
+      {/* About Section */}
       <section id="about" className="py-20 bg-secondary/30 relative overflow-hidden">
-        {/* Enhanced floating elements */}
-        <div className="absolute top-20 left-10 w-20 h-20 bg-primary/10 rounded-full animate-background-particles"></div>
-        <div className="absolute bottom-20 right-10 w-16 h-16 bg-accent/10 rounded-full animate-background-particles stagger-2"></div>
-        <div className="absolute top-1/2 left-1/4 w-12 h-12 bg-secondary/15 rounded-full animate-background-particles stagger-4"></div>
+        {/* Floating elements */}
+        <div className="absolute top-20 left-10 w-20 h-20 bg-primary/10 rounded-full animate-float-slow"></div>
+        <div className="absolute bottom-20 right-10 w-16 h-16 bg-accent/10 rounded-full animate-float-delayed"></div>
         
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-6 animate-hero-text-reveal">
+            <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-6 animate-section-title-slide">
               About <span className="text-primary animate-text-shimmer">Us</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-text-wave-entrance stagger-1">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-section-subtitle-fade">
               Trusted accounting professionals serving London businesses for over a decade
             </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
-            <div className="animate-contact-form-slide">
-              <h3 className="text-3xl font-bold text-foreground mb-6 animate-text-wave-entrance">
+            <div className="animate-content-slide-right">
+              <h3 className="text-3xl font-bold text-foreground mb-6 animate-heading-bounce">
                 Your Trusted Financial Partners
               </h3>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
-                <p className="hover:text-foreground transition-colors duration-500 animate-text-wave-entrance stagger-1 hover-lift">
+                <p className="hover:text-foreground transition-colors duration-500 animate-paragraph-fade-up">
                   Founded in the heart of London, LondonAccounts has been providing exceptional 
                   accounting services to businesses across the capital for over fifteen years. 
                   Our team of qualified accountants and financial advisors are committed to 
                   helping your business navigate the complex world of finance with confidence.
                 </p>
-                <p className="hover:text-foreground transition-colors duration-500 animate-text-wave-entrance stagger-2 hover-lift">
+                <p className="hover:text-foreground transition-colors duration-500 animate-paragraph-fade-up-delayed">
                   We understand that every business is unique, which is why we take the time 
                   to understand your specific needs and goals. From startups to established 
                   enterprises, we provide tailored solutions that drive growth and ensure 
@@ -292,7 +282,7 @@ const Index = () => {
               <img 
                 src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1926&q=80"
                 alt="Modern office space"
-                className="rounded-lg shadow-lg hover:shadow-2xl transition-all duration-700 hover:scale-105 hover:rotate-1 animate-image-reveal hover-glow"
+                className="rounded-lg shadow-lg hover:shadow-2xl transition-all duration-700 hover:scale-105 hover:rotate-1 animate-image-reveal"
               />
             </div>
           </div>
@@ -301,16 +291,17 @@ const Index = () => {
             {stats.map((stat, index) => (
               <Card 
                 key={stat.label} 
-                className={`text-center hover:shadow-2xl transition-all duration-700 hover:-translate-y-4 hover:scale-110 animate-stats-counter-pop hover-lift bg-card/90 backdrop-blur-sm group stagger-${index + 1}`}
+                className="text-center hover:shadow-2xl transition-all duration-700 hover:-translate-y-4 hover:scale-110 animate-stat-card-pop bg-card/90 backdrop-blur-sm group"
+                style={{ animationDelay: `${index * 0.2}s` }}
               >
                 <CardContent className="p-8">
-                  <div className="p-4 bg-primary/10 rounded-full w-fit mx-auto mb-4 group-hover:bg-primary/20 transition-all duration-500 group-hover:scale-125 group-hover:rotate-12 animate-icon-spin-pop hover-glow stagger-1">
-                    <stat.icon className="w-8 h-8 text-primary transition-all duration-300 group-hover:scale-110 hover-spin" />
+                  <div className="p-4 bg-primary/10 rounded-full w-fit mx-auto mb-4 group-hover:bg-primary/20 transition-all duration-500 group-hover:scale-125 group-hover:rotate-12 animate-icon-bounce">
+                    <stat.icon className="w-8 h-8 text-primary transition-all duration-300 group-hover:scale-110" />
                   </div>
-                  <div className="text-3xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-500 animate-text-wave-entrance stagger-2">
+                  <div className="text-3xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-500 animate-number-count">
                     {stat.value}
                   </div>
-                  <div className="text-muted-foreground group-hover:text-foreground transition-colors duration-300 animate-text-wave-entrance stagger-3">
+                  <div className="text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                     {stat.label}
                   </div>
                 </CardContent>
@@ -320,34 +311,32 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Enhanced Contact Section */}
+      {/* Contact Section */}
       <section id="contact" className="py-20 bg-background relative overflow-hidden">
-        {/* Enhanced background elements */}
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary/5 to-secondary/5 animate-floating-gradient"></div>
-        <div className="absolute top-20 right-20 w-16 h-16 bg-primary/10 rounded-full animate-background-particles"></div>
-        <div className="absolute bottom-32 left-20 w-20 h-20 bg-accent/10 rounded-full animate-background-particles stagger-3"></div>
+        {/* Background elements */}
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary/5 to-secondary/5"></div>
         
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-6 animate-hero-text-reveal">
+            <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-6 animate-section-title-slide">
               Contact <span className="text-primary animate-text-shimmer">Us</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-text-wave-entrance stagger-1">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-section-subtitle-fade">
               Ready to take your business finances to the next level? Get in touch with our expert team today.
             </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-16 mb-16">
-            <div className="animate-contact-form-slide">
-              <Card className="hover:shadow-2xl transition-all duration-700 bg-card/90 backdrop-blur-sm group hover:scale-105 hover-glow animate-card-pop-entrance">
+            <div className="animate-form-slide-up">
+              <Card className="hover:shadow-2xl transition-all duration-700 bg-card/90 backdrop-blur-sm group hover:scale-105">
                 <CardHeader>
-                  <CardTitle className="text-2xl group-hover:text-primary transition-colors duration-300 animate-text-wave-entrance">
+                  <CardTitle className="text-2xl group-hover:text-primary transition-colors duration-300">
                     Send us a Message
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="animate-text-wave-entrance stagger-1">
+                    <div className="animate-input-slide-in">
                       <Label htmlFor="name">Full Name</Label>
                       <Input
                         id="name"
@@ -356,11 +345,11 @@ const Index = () => {
                         value={formData.name}
                         onChange={handleInputChange}
                         required
-                        className="mt-2 transition-all duration-500 hover:border-primary focus:scale-105 hover:shadow-lg hover-glow"
+                        className="mt-2 transition-all duration-500 hover:border-primary focus:scale-105 hover:shadow-lg"
                         placeholder="Your full name"
                       />
                     </div>
-                    <div className="animate-text-wave-entrance stagger-2">
+                    <div className="animate-input-slide-in-delayed">
                       <Label htmlFor="email">Email Address</Label>
                       <Input
                         id="email"
@@ -369,11 +358,11 @@ const Index = () => {
                         value={formData.email}
                         onChange={handleInputChange}
                         required
-                        className="mt-2 transition-all duration-500 hover:border-primary focus:scale-105 hover:shadow-lg hover-glow"
+                        className="mt-2 transition-all duration-500 hover:border-primary focus:scale-105 hover:shadow-lg"
                         placeholder="your.email@example.com"
                       />
                     </div>
-                    <div className="animate-text-wave-entrance stagger-3">
+                    <div className="animate-input-slide-in-more-delayed">
                       <Label htmlFor="message">Message</Label>
                       <textarea
                         id="message"
@@ -382,11 +371,11 @@ const Index = () => {
                         onChange={handleInputChange}
                         required
                         rows={6}
-                        className="mt-2 w-full px-3 py-2 border border-input bg-background rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 transition-all duration-500 hover:border-primary focus:scale-105 hover:shadow-lg hover-glow"
+                        className="mt-2 w-full px-3 py-2 border border-input bg-background rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 transition-all duration-500 hover:border-primary focus:scale-105 hover:shadow-lg"
                         placeholder="Tell us about your accounting needs..."
                       />
                     </div>
-                    <Button type="submit" size="lg" className="w-full hover:scale-105 transition-all duration-500 animate-button-magnetic hover-glow">
+                    <Button type="submit" size="lg" className="w-full hover:scale-105 transition-all duration-500 animate-button-pulse">
                       Send Message
                     </Button>
                   </form>
@@ -398,21 +387,22 @@ const Index = () => {
               {contactInfo.map((info, index) => (
                 <Card 
                   key={info.title} 
-                  className={`hover:shadow-2xl transition-all duration-700 hover:-translate-y-2 hover:scale-105 bg-card/90 backdrop-blur-sm group animate-card-pop-entrance hover-lift stagger-${index + 1}`}
+                  className="hover:shadow-2xl transition-all duration-700 hover:-translate-y-2 hover:scale-105 bg-card/90 backdrop-blur-sm group animate-contact-card-pop"
+                  style={{ animationDelay: `${0.1 * index}s` }}
                 >
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4">
-                      <div className={`p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 animate-icon-spin-pop hover-glow stagger-${index + 1}`}>
-                        <info.icon className="w-6 h-6 text-primary transition-all duration-300 group-hover:scale-110 hover-spin" />
+                      <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 animate-contact-icon-bounce">
+                        <info.icon className="w-6 h-6 text-primary transition-all duration-300 group-hover:scale-110" />
                       </div>
                       <div className="group-hover:translate-x-2 transition-transform duration-300">
-                        <h3 className="font-semibold text-foreground mb-1 group-hover:text-primary transition-colors duration-300 animate-text-wave-entrance stagger-1">
+                        <h3 className="font-semibold text-foreground mb-1 group-hover:text-primary transition-colors duration-300">
                           {info.title}
                         </h3>
-                        <p className="text-foreground mb-1 animate-text-wave-entrance stagger-2">
+                        <p className="text-foreground mb-1">
                           {info.details}
                         </p>
-                        <p className="text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300 animate-text-wave-entrance stagger-3">
+                        <p className="text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                           {info.subtext}
                         </p>
                       </div>
@@ -423,13 +413,13 @@ const Index = () => {
             </div>
           </div>
 
-          {/* Enhanced Google Maps Section */}
-          <div className="animate-card-pop-entrance stagger-7">
-            <Card className="hover:shadow-2xl transition-all duration-700 bg-card/90 backdrop-blur-sm group hover:scale-[1.02] hover-glow">
+          {/* Google Maps Section */}
+          <div className="animate-map-reveal">
+            <Card className="hover:shadow-2xl transition-all duration-700 bg-card/90 backdrop-blur-sm group hover:scale-[1.02]">
               <CardContent className="p-0">
                 <div className="aspect-video bg-muted rounded-lg overflow-hidden relative group">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.2779487314143!2d-0.08919308423022394!3d51.51345897963616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487603464461a401%3A0xa13f1f7f8b094228!2sBank%2C%20London!5e0!3m2!1sen!2suk!4v1634567890123!5m2!1sen!2suk"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.2779487314143!2d-0.08919308423022394!3d51.51345897963616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487603464461a401%3A0xa13f1f7f8b094228!2sBank%2C%20London!5e0!3m2!1sen!2suk!4v1634567890123!5m2!1sen!2suk!4v1634567890123!5m2!1sen!2suk"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
@@ -439,7 +429,7 @@ const Index = () => {
                     title="Office Location - Bank, London"
                     className="hover:grayscale-0 grayscale-[0.3] transition-all duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none animate-floating-gradient"></div>
+                  <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                 </div>
               </CardContent>
             </Card>
