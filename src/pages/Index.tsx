@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { ChevronDown, Calculator, FileText, TrendingUp, Shield, Users, PiggyBank, Award, Clock, MapPin, Mail, Phone } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -45,45 +46,52 @@ const Index = () => {
   const services = [
     {
       id: 1,
-      title: "Bookkeeping & Accounting",
-      description: "Professional bookkeeping services to keep your finances organized",
+      title: "Company Accounts Production and Filing",
+      description: "Complete year-end accounts and HMRC compliance services",
       icon: Calculator,
-      details: "Our comprehensive bookkeeping services include daily transaction recording, bank reconciliation, accounts payable and receivable management, and monthly financial reporting. We use cloud-based accounting software to ensure your books are always up-to-date and accessible."
+      details: "Do you require assistance with your year-end accounts? We can take care of submitting your year-end accounts to HMRC and Companies House on your behalf. It is mandatory for limited companies to submit these accounts, and failing to do so can result in significant fines if the firm is not in compliance with the law. Furthermore, with the implementation of the Making Tax Digital regulations in 2023, it is even more critical that you maintain precise digital records of your transactions. You will be able to comply with the law if you have our assistance. We are best known for our all-inclusive unlimited service plan, which includes all accounting services required by a UK business and more for a fixed monthly fee. Furthermore, when you sign up for our all-inclusive service, we will give you a 50 percent discount on any existing company accounts you may have."
     },
     {
       id: 2,
-      title: "Tax Planning & Preparation",
-      description: "Strategic tax planning to minimize your tax liability",
+      title: "Self Assessment Tax Returns",
+      description: "Expert handling of your Self Assessment submissions and HMRC compliance",
       icon: FileText,
-      details: "We provide expert tax preparation for individuals and businesses, including corporation tax, VAT returns, self-assessment, and payroll taxes. Our proactive approach helps identify tax-saving opportunities throughout the year."
+      details: "Filing your Self Assessment tax return can be confusing, especially with the ever-changing HMRC guidelines and deadlines. Our expert accountants will take care of the entire process, from registering with HMRC (if needed) to preparing and submitting your return accurately and on time. We ensure that all income sources are accounted for, and we'll work to minimise your tax liability wherever possible. Whether you're a sole trader, landlord, company director, or have additional income to report, we'll handle everything for you—eliminating the stress and potential penalties of incorrect or late submissions. We are best known for our all-inclusive unlimited service plan, which includes all accounting services required by a UK business and more for a fixed monthly fee. Furthermore, when you sign up for our all-inclusive service, we will give you a 50 percent discount on any outstanding Self Assessment returns you may have."
     },
     {
       id: 3,
-      title: "Financial Consulting",
-      description: "Expert advice to help your business grow and prosper",
+      title: "Expert Bookkeeping Services",
+      description: "Comprehensive managed bookkeeping solutions for your business",
       icon: TrendingUp,
-      details: "Our financial consulting services include cash flow analysis, budgeting and forecasting, business planning, and strategic financial advice. We help you make informed decisions to drive your business forward."
+      details: "Bookkeeping is a time-consuming task for every business owner, and getting behind is a common occurrence. With our managed bookkeeping solution, you can avoid hours of catching up on work. Our accountants will take care of this vital part of your business, freeing up your time so that you can devote your attention to the things that matter the most. We are best known for our all-inclusive unlimited service plan, which includes all accounting services required by a UK business and more for a fixed monthly fee. Furthermore, when you sign up for our all-inclusive service, we will give you a 50 percent discount on any outstanding bookkeeping you may have."
     },
     {
       id: 4,
-      title: "Audit & Assurance",
-      description: "Independent audit services for transparency and compliance",
+      title: "VAT Accountants",
+      description: "Professional VAT calculation, reporting and compliance services",
       icon: Shield,
-      details: "We provide statutory audits, internal audits, and assurance services to ensure your financial statements are accurate and compliant with regulations. Our thorough approach gives stakeholders confidence in your financial reporting."
+      details: "The procedure of calculating and reporting VAT is complicated and time-consuming. Our accountants will take care of the filing of your VAT returns. Every aspect of your VAT return will be handled by our experts, from ensuring that you are on the correct scheme to ensuring that everything is properly accounted for. You may rest assured that your returns will be submitted on time if you use More Than Accountants. We are best known for our all-inclusive unlimited service plan, which includes all accounting services required by a UK business and more for a fixed monthly fee. Furthermore, when you sign up for our all-inclusive service, we will give you a 50 percent discount on any existing VAT returns you may have."
     },
     {
       id: 5,
-      title: "Payroll Services",
-      description: "Complete payroll management for your employees",
+      title: "Managed Payroll Service",
+      description: "Complete payroll management and HMRC reporting services",
       icon: Users,
-      details: "Our payroll services include salary processing, PAYE and National Insurance calculations, pension contributions, and RTI submissions to HMRC. We ensure your payroll is accurate and compliant."
+      details: "The ability to keep track of payroll is critical – and nothing irritates employees more than an error or a delay in the delivery of pay slips. You can rely on our outsourced payroll solution to ensure that your employees are paid on time as well as that their national insurance and pension payments are calculated correctly. We'll tell you who and what to pay, present you with payslips, and file your HMRC reports on your behalf. We handle all aspects of a company's payroll, providing the most comprehensive service available. We are best known for our all-inclusive unlimited service plan, which includes all accounting services required by a UK business and more for a fixed monthly fee. Furthermore, when you sign up for our all-inclusive service, we will give you a 50 percent discount on any outstanding Payroll responsibilities you may have."
     },
     {
       id: 6,
-      title: "Business Advisory",
-      description: "Strategic guidance for business growth and efficiency",
+      title: "Critical Management Information",
+      description: "Strategic financial reporting and business guidance",
       icon: PiggyBank,
-      details: "We offer comprehensive business advisory services including business structure optimization, merger and acquisition support, performance improvement, and succession planning to help your business thrive."
+      details: "The majority of small business owners are passionate about their product or service – not about managing their accounts and bookkeeping procedures. Concentrate on the activities that you find enjoyable while leaving the complicated process of handling taxes and accounts to us. Our professionals will stay on top of this difficult component of running a business so that you don't have to worry about it. Your monthly or quarterly Profit & Loss Account and Balance Sheet will be prepared by us. In addition to providing you with personalised guidance, your experienced Accountant will also provide you with tax estimations."
+    },
+    {
+      id: 7,
+      title: "Tax Returns for Companies and Individuals",
+      description: "Comprehensive tax return services for all business types",
+      icon: Award,
+      details: "Managing your finances as a company or self-employed individual can be difficult enough without having to worry about filing self-assessment tax returns on top of everything else. You may find the process of submitting a tax return to be excessively complicated, or you may not want to devote the necessary time and attention to the task. The experts at More Than Accountants can take care of your self-assessment accounts and company tax requirements, ensuring that you do not incur any penalties or fines as a result of any mistakes or delays. We are best known for our all-inclusive unlimited service plan, which includes all accounting services required by a UK business and more for a fixed monthly fee. Furthermore, when you sign up for our all-inclusive service, we will give you a 50 percent discount on any existing tax returns you may have."
     }
   ];
 
@@ -140,12 +148,12 @@ const Index = () => {
         <div className="relative z-40 flex items-center min-h-screen px-6 pt-20">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-3xl text-left">
-              <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight animate-fade-in">
+              <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight animate-hero-slide-up">
                 Expert Accounting
                 <br />
-                <span className="text-accent animate-pulse">Solutions</span>
+                <span className="text-accent animate-hero-glow">Solutions</span>
               </h1>
-              <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed animate-fade-in" style={{ animationDelay: '0.3s' }}>
+              <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed animate-hero-fade-in-delayed">
                 Navigate London's financial landscape with confidence. Professional accounting services tailored for your business success.
               </p>
             </div>
@@ -153,59 +161,78 @@ const Index = () => {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-slow">
           <ChevronDown className="text-white w-8 h-8" />
         </div>
       </div>
 
       {/* Services Section */}
-      <section id="services" className="py-20 bg-background">
-        <div className="max-w-7xl mx-auto px-6">
+      <section id="services" className="py-20 bg-background relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-6 animate-fade-in">
-              Our <span className="text-primary">Services</span>
+            <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-6 animate-section-title-slide">
+              Our <span className="text-primary animate-text-shimmer">Services</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-section-subtitle-fade">
               Comprehensive accounting solutions designed to support your business at every stage of growth
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="space-y-8">
             {services.map((service, index) => (
               <Card 
                 key={service.id} 
-                className="hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-105 animate-fade-in bg-card/80 backdrop-blur-sm"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="hover:shadow-2xl transition-all duration-700 hover:-translate-y-4 hover:scale-[1.02] animate-service-card-rise bg-card/90 backdrop-blur-sm border-l-4 border-l-primary relative group overflow-hidden"
+                style={{ animationDelay: `${index * 0.15}s` }}
               >
-                <CardHeader>
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="p-3 bg-primary/10 rounded-lg transition-all duration-300 hover:bg-primary/20 hover:scale-110">
-                      <service.icon className="w-6 h-6 text-primary" />
+                {/* Animated background gradient */}
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                <CardHeader className="relative z-10">
+                  <div className="flex items-start gap-6 mb-4">
+                    <div className="p-4 bg-primary/10 rounded-xl transition-all duration-500 group-hover:bg-primary/20 group-hover:scale-110 group-hover:rotate-3">
+                      <service.icon className="w-8 h-8 text-primary transition-all duration-300 group-hover:scale-110" />
+                    </div>
+                    <div className="flex-1">
+                      <CardTitle className="text-2xl md:text-3xl hover:text-primary transition-colors duration-300 mb-2 group-hover:translate-x-2">
+                        {service.title}
+                      </CardTitle>
+                      <CardDescription className="text-lg text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+                        {service.description}
+                      </CardDescription>
                     </div>
                   </div>
-                  <CardTitle className="text-xl hover:text-primary transition-colors duration-300">{service.title}</CardTitle>
-                  <CardDescription>{service.description}</CardDescription>
                 </CardHeader>
-                <CardContent>
+                
+                <CardContent className="relative z-10">
                   <Collapsible>
                     <CollapsibleTrigger asChild>
                       <Button 
                         variant="ghost" 
-                        className="w-full justify-between p-0 h-auto hover:bg-primary/5 transition-all duration-300"
+                        className="w-full justify-between p-4 h-auto hover:bg-primary/10 transition-all duration-500 group/btn border border-primary/20 rounded-lg hover:border-primary/40"
                         onClick={() => toggleService(service.id)}
                       >
-                        <span className="text-primary font-medium">Read More</span>
+                        <span className="text-primary font-semibold text-lg group-hover/btn:translate-x-2 transition-transform duration-300">
+                          Read More Details
+                        </span>
                         <ChevronDown 
-                          className={`w-4 h-4 text-primary transition-transform duration-300 ${
+                          className={`w-5 h-5 text-primary transition-all duration-500 group-hover/btn:scale-110 ${
                             openServices.includes(service.id) ? 'rotate-180' : ''
                           }`} 
                         />
                       </Button>
                     </CollapsibleTrigger>
-                    <CollapsibleContent className="mt-4 animate-fade-in">
-                      <p className="text-muted-foreground leading-relaxed">
-                        {service.details}
-                      </p>
+                    <CollapsibleContent className="mt-6 animate-expand-content">
+                      <div className="bg-secondary/20 p-6 rounded-lg border-l-2 border-primary/30">
+                        <p className="text-muted-foreground leading-relaxed text-base animate-text-reveal">
+                          {service.details}
+                        </p>
+                      </div>
                     </CollapsibleContent>
                   </Collapsible>
                 </CardContent>
@@ -216,30 +243,34 @@ const Index = () => {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-secondary/30">
-        <div className="max-w-7xl mx-auto px-6">
+      <section id="about" className="py-20 bg-secondary/30 relative overflow-hidden">
+        {/* Floating elements */}
+        <div className="absolute top-20 left-10 w-20 h-20 bg-primary/10 rounded-full animate-float-slow"></div>
+        <div className="absolute bottom-20 right-10 w-16 h-16 bg-accent/10 rounded-full animate-float-delayed"></div>
+        
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-6 animate-fade-in">
-              About <span className="text-primary">Us</span>
+            <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-6 animate-section-title-slide">
+              About <span className="text-primary animate-text-shimmer">Us</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-section-subtitle-fade">
               Trusted accounting professionals serving London businesses for over a decade
             </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
-            <div className="animate-fade-in">
-              <h3 className="text-3xl font-bold text-foreground mb-6">
+            <div className="animate-content-slide-right">
+              <h3 className="text-3xl font-bold text-foreground mb-6 animate-heading-bounce">
                 Your Trusted Financial Partners
               </h3>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
-                <p className="hover:text-foreground transition-colors duration-300">
+                <p className="hover:text-foreground transition-colors duration-500 animate-paragraph-fade-up">
                   Founded in the heart of London, LondonAccounts has been providing exceptional 
                   accounting services to businesses across the capital for over fifteen years. 
                   Our team of qualified accountants and financial advisors are committed to 
                   helping your business navigate the complex world of finance with confidence.
                 </p>
-                <p className="hover:text-foreground transition-colors duration-300">
+                <p className="hover:text-foreground transition-colors duration-500 animate-paragraph-fade-up-delayed">
                   We understand that every business is unique, which is why we take the time 
                   to understand your specific needs and goals. From startups to established 
                   enterprises, we provide tailored solutions that drive growth and ensure 
@@ -247,11 +278,11 @@ const Index = () => {
                 </p>
               </div>
             </div>
-            <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <div className="animate-content-slide-left">
               <img 
                 src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1926&q=80"
                 alt="Modern office space"
-                className="rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105"
+                className="rounded-lg shadow-lg hover:shadow-2xl transition-all duration-700 hover:scale-105 hover:rotate-1 animate-image-reveal"
               />
             </div>
           </div>
@@ -260,17 +291,17 @@ const Index = () => {
             {stats.map((stat, index) => (
               <Card 
                 key={stat.label} 
-                className="text-center hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-105 animate-fade-in bg-card/80 backdrop-blur-sm"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="text-center hover:shadow-2xl transition-all duration-700 hover:-translate-y-4 hover:scale-110 animate-stat-card-pop bg-card/90 backdrop-blur-sm group"
+                style={{ animationDelay: `${index * 0.2}s` }}
               >
                 <CardContent className="p-8">
-                  <div className="p-4 bg-primary/10 rounded-full w-fit mx-auto mb-4 hover:bg-primary/20 transition-colors duration-300 hover:scale-110">
-                    <stat.icon className="w-8 h-8 text-primary" />
+                  <div className="p-4 bg-primary/10 rounded-full w-fit mx-auto mb-4 group-hover:bg-primary/20 transition-all duration-500 group-hover:scale-125 group-hover:rotate-12 animate-icon-bounce">
+                    <stat.icon className="w-8 h-8 text-primary transition-all duration-300 group-hover:scale-110" />
                   </div>
-                  <div className="text-3xl font-bold text-foreground mb-2 hover:text-primary transition-colors duration-300">
+                  <div className="text-3xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-500 animate-number-count">
                     {stat.value}
                   </div>
-                  <div className="text-muted-foreground">
+                  <div className="text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                     {stat.label}
                   </div>
                 </CardContent>
@@ -281,26 +312,31 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-background">
-        <div className="max-w-7xl mx-auto px-6">
+      <section id="contact" className="py-20 bg-background relative overflow-hidden">
+        {/* Background elements */}
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary/5 to-secondary/5"></div>
+        
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-6 animate-fade-in">
-              Contact <span className="text-primary">Us</span>
+            <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-6 animate-section-title-slide">
+              Contact <span className="text-primary animate-text-shimmer">Us</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-section-subtitle-fade">
               Ready to take your business finances to the next level? Get in touch with our expert team today.
             </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-16 mb-16">
-            <div className="animate-fade-in">
-              <Card className="hover:shadow-2xl transition-all duration-500 bg-card/80 backdrop-blur-sm">
+            <div className="animate-form-slide-up">
+              <Card className="hover:shadow-2xl transition-all duration-700 bg-card/90 backdrop-blur-sm group hover:scale-105">
                 <CardHeader>
-                  <CardTitle className="text-2xl">Send us a Message</CardTitle>
+                  <CardTitle className="text-2xl group-hover:text-primary transition-colors duration-300">
+                    Send us a Message
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <form onSubmit={handleSubmit} className="space-y-6">
-                    <div>
+                    <div className="animate-input-slide-in">
                       <Label htmlFor="name">Full Name</Label>
                       <Input
                         id="name"
@@ -309,11 +345,11 @@ const Index = () => {
                         value={formData.name}
                         onChange={handleInputChange}
                         required
-                        className="mt-2 transition-all duration-300 hover:border-primary focus:scale-105"
+                        className="mt-2 transition-all duration-500 hover:border-primary focus:scale-105 hover:shadow-lg"
                         placeholder="Your full name"
                       />
                     </div>
-                    <div>
+                    <div className="animate-input-slide-in-delayed">
                       <Label htmlFor="email">Email Address</Label>
                       <Input
                         id="email"
@@ -322,11 +358,11 @@ const Index = () => {
                         value={formData.email}
                         onChange={handleInputChange}
                         required
-                        className="mt-2 transition-all duration-300 hover:border-primary focus:scale-105"
+                        className="mt-2 transition-all duration-500 hover:border-primary focus:scale-105 hover:shadow-lg"
                         placeholder="your.email@example.com"
                       />
                     </div>
-                    <div>
+                    <div className="animate-input-slide-in-more-delayed">
                       <Label htmlFor="message">Message</Label>
                       <textarea
                         id="message"
@@ -335,11 +371,11 @@ const Index = () => {
                         onChange={handleInputChange}
                         required
                         rows={6}
-                        className="mt-2 w-full px-3 py-2 border border-input bg-background rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 transition-all duration-300 hover:border-primary focus:scale-105"
+                        className="mt-2 w-full px-3 py-2 border border-input bg-background rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 transition-all duration-500 hover:border-primary focus:scale-105 hover:shadow-lg"
                         placeholder="Tell us about your accounting needs..."
                       />
                     </div>
-                    <Button type="submit" size="lg" className="w-full hover:scale-105 transition-all duration-300">
+                    <Button type="submit" size="lg" className="w-full hover:scale-105 transition-all duration-500 animate-button-pulse">
                       Send Message
                     </Button>
                   </form>
@@ -347,26 +383,26 @@ const Index = () => {
               </Card>
             </div>
 
-            <div className="space-y-6 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <div className="space-y-6 animate-contact-cards-slide">
               {contactInfo.map((info, index) => (
                 <Card 
                   key={info.title} 
-                  className="hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 hover:scale-105 bg-card/80 backdrop-blur-sm"
+                  className="hover:shadow-2xl transition-all duration-700 hover:-translate-y-2 hover:scale-105 bg-card/90 backdrop-blur-sm group animate-contact-card-pop"
                   style={{ animationDelay: `${0.1 * index}s` }}
                 >
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4">
-                      <div className="p-3 bg-primary/10 rounded-lg hover:bg-primary/20 transition-all duration-300 hover:scale-110">
-                        <info.icon className="w-6 h-6 text-primary" />
+                      <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 animate-contact-icon-bounce">
+                        <info.icon className="w-6 h-6 text-primary transition-all duration-300 group-hover:scale-110" />
                       </div>
-                      <div>
-                        <h3 className="font-semibold text-foreground mb-1 hover:text-primary transition-colors duration-300">
+                      <div className="group-hover:translate-x-2 transition-transform duration-300">
+                        <h3 className="font-semibold text-foreground mb-1 group-hover:text-primary transition-colors duration-300">
                           {info.title}
                         </h3>
                         <p className="text-foreground mb-1">
                           {info.details}
                         </p>
-                        <p className="text-sm text-muted-foreground">
+                        <p className="text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                           {info.subtext}
                         </p>
                       </div>
@@ -378,10 +414,10 @@ const Index = () => {
           </div>
 
           {/* Google Maps Section */}
-          <div className="animate-fade-in">
-            <Card className="hover:shadow-2xl transition-all duration-500 bg-card/80 backdrop-blur-sm">
+          <div className="animate-map-reveal">
+            <Card className="hover:shadow-2xl transition-all duration-700 bg-card/90 backdrop-blur-sm group hover:scale-[1.02]">
               <CardContent className="p-0">
-                <div className="aspect-video bg-muted rounded-lg overflow-hidden">
+                <div className="aspect-video bg-muted rounded-lg overflow-hidden relative group">
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.2779487314143!2d-0.08919308423022394!3d51.51345897963616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487603464461a401%3A0xa13f1f7f8b094228!2sBank%2C%20London!5e0!3m2!1sen!2suk!4v1634567890123!5m2!1sen!2suk!4v1634567890123!5m2!1sen!2suk"
                     width="100%"
@@ -391,8 +427,9 @@ const Index = () => {
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                     title="Office Location - Bank, London"
-                    className="hover:grayscale-0 grayscale transition-all duration-500"
+                    className="hover:grayscale-0 grayscale-[0.3] transition-all duration-700 group-hover:scale-105"
                   />
+                  <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                 </div>
               </CardContent>
             </Card>
